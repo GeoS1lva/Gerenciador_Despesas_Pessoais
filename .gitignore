@@ -8,33 +8,34 @@
 bin/
 obj/
 
-# Configurações do Visual Studio
+# Configuraï¿½ï¿½es do Visual Studio
 .vs/
 *.suo
 *.user
 *.vcxproj.user
 
-# Configuração de usuários do Rider/ReSharper
+# Configuraï¿½ï¿½o de usuï¿½rios do Rider/ReSharper
 .idea/
 *.sln.iml
 
-# Arquivos de log e temporários
+# Arquivos de log e temporï¿½rios
 *.log
 *.tmp
 *.bak
 
-# Configuração do sistema operacional
+# Configuraï¿½ï¿½o do sistema operacional
 Thumbs.db
 Desktop.ini
 .DS_Store
 
-# Dependências (caso não use PackageReference)
+# Dependï¿½ncias (caso nï¿½o use PackageReference)
 packages/
 node_modules/
 
-# Configuração do usuário e credenciais
+# Configuraï¿½ï¿½o do usuï¿½rio e credenciais
 secrets.json
 appsettings.json
+appsettings.Development.json
 
 
 # User-specific files
