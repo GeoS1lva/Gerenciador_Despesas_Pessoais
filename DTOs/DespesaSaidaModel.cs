@@ -8,6 +8,8 @@ namespace GerenciadorDespesasPessoais.DTOs
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public TipoDespesa Tipo { get; set; }
         public double Valor { get; set; }
+
+
         public DespesaSaidaModel(TipoDespesa tipo, double valor)
         {
             Tipo = tipo;

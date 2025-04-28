@@ -18,5 +18,22 @@ namespace GerenciadorDespesasPessoais.Application.Service
 
             return despesaSaida;
         }
+
+        public async Task<List<DespesaModel?>> TodasDespesas()
+        {
+            var Despesas = context.DespesasRepository.VisualizarTodasAsDespesas().Result;
+
+            List<DespesaModel?> retorno = Despesas.Select(a => new DespesaModel
+            {
+                Tipo = a.Tipo,
+                Valor = a.Valor,
+                Data = a.Data,
+                Parcelado = a.Parcelado,
+                QuantidadeParcela = a.QuantidadeParcela,
+                ValorParcela = a.ValorParcela
+            }).ToList();
+
+            return retorno;
+        }
     }
 }

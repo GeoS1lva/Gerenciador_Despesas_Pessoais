@@ -13,7 +13,7 @@ namespace GerenciadorDespesasPessoais.Infrastructure.Repositories
         public void InserirDespesa(Despesas despesa)
             => _context.Despesas.Add(despesa);
 
-        public async Task<List<Despesas>> VisualizarTodasAsDespesas()
+        public async Task<List<Despesas>?> VisualizarTodasAsDespesas()
             => await _context.Despesas.ToListAsync();
 
         public async Task<List<Despesas>> FiltrarData(DateOnly data)

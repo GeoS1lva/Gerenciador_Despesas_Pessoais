@@ -4,6 +4,7 @@ namespace GerenciadorDespesasPessoais.Application.UseCase
 {
     public interface IDespesaUseCase
     {
-        Task<ResultModel> AdicionarDespesa(DespesaModel despesaModel);
+        public Task<ResultModel> AdicionarDespesa(DespesaModel despesaModel);
+        public Task<ResultModel> RetornarTodasDespesas();
     }
 }

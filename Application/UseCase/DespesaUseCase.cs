@@ -44,6 +44,16 @@ namespace GerenciadorDespesasPessoais.Application.UseCase
             return new(resultado);
         }
 
+        public async Task<ResultModel> RetornarTodasDespesas()
+        {
+            var resultado = await _despesasService.TodasDespesas();
+
+            if (resultado == null)
+                return new("Sem despesas!");
+
+            return new(resultado);
+        }
+
         public bool ValidarData(DateOnly data)
         {
             int dia = data.Day;
