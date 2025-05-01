@@ -15,7 +15,7 @@ namespace GerenciadorDespesasPessoais.Controllers
             var retorno = await despesaUseCase.AdicionarDespesa(request);
 
             if(retorno.Error)
-                return BadRequest(retorno.Error);
+                return BadRequest(retorno.ErrorMessage);
 
             return Ok(retorno);
         }

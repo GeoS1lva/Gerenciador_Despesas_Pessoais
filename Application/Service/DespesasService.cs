@@ -6,26 +6,24 @@ namespace GerenciadorDespesasPessoais.Application.Service
 {
     public class DespesasService(IUnitOfWork context) : IDespesasService
     {
-        public async Task<DespesaSaidaModel> AdicionarDespesaService(DespesaModel despesaModel)
+        public async Task<DespesaSaidaModel> AdicionarDespesaService(Despesas despesa)
         {
-            var NovaDespesa = new Despesas(despesaModel.Tipo, despesaModel.Valor, despesaModel.Data, despesaModel.Parcelado, despesaModel.QuantidadeParcela);
-
-            context.DespesasRepository.InserirDespesa(NovaDespesa);
+            context.DespesasRepository.InserirDespesa(despesa);
 
             await context.SaveChangesAsync();
 
-            var despesaSaida = new DespesaSaidaModel(NovaDespesa.Tipo, NovaDespesa.Valor);
+            var despesaSaida = new DespesaSaidaModel(despesa.Tipo, despesa.Valor);
 
             return despesaSaida;
         }
 
-        public async Task<List<DespesaModel?>> TodasDespesas()
+        public async Task<List<DespesaModel>> TodasDespesas()
         {
-            var Despesas = context.DespesasRepository.VisualizarTodasAsDespesas().Result;
+            var Despesas = await context.DespesasRepository.VisualizarTodasAsDespesas();
 
-            List<DespesaModel?> retorno = Despesas.Select(a => new DespesaModel
+            List<DespesaModel> retorno = Despesas.Select(a => new DespesaModel
             {
-                Tipo = a.Tipo,
+                Tipo = a.Tipo.ToString(),
                 Valor = a.Valor,
                 Data = a.Data,
                 Parcelado = a.Parcelado,
